@@ -6,11 +6,11 @@ gcc \
 python{,-devel,-setuptools} \
 python27-python{,-devel,-setuptools} \
 rpm-build \
-rh-ruby22{,-ruby-devel}
-RUN scl enable rh-ruby22 "gem install fpm --no-ri --no-rdoc"
+rh-ruby24{,-ruby-devel}
+RUN scl enable rh-ruby24 "gem install fpm --no-ri --no-rdoc"
 RUN scl enable python27 "easy_install pex requests wheel"
-ENV PATH /opt/rh/rh-ruby22/root/usr/local/bin:$PATH
+ENV PATH /opt/rh/rh-ruby24/root/usr/local/bin:$PATH
 
 VOLUME '/opt/src'
 WORKDIR '/opt/src'
-ENTRYPOINT ["scl", "enable", "python27", "rh-ruby22"]
+ENTRYPOINT ["scl", "enable", "python27", "rh-ruby24"]
